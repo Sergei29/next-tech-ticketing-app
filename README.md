@@ -1,3 +1,7 @@
+## Source
+
+Following the Udemy course at: https://www.udemy.com/course/nextjs14-ticketapp
+
 ## Database
 
 - At Neon cloud service: https://console.neon.tech/
