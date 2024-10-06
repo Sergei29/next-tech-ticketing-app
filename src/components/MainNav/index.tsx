@@ -1,26 +1,19 @@
 import Link from "next/link";
 
+import ToggleMode from "@/components/ToggleMode";
+import MainNavLinks from "./MainNavLinks";
+
 const MainNav = (): JSX.Element => {
   return (
     <div className="flex justify-between">
-      <ul className="flex items-center gap-2">
-        <li>
-          <Link href="/">Dashboard</Link>
-        </li>
-        <li>
-          <Link href="/tickets">Tickets</Link>
-        </li>
-        <li>
-          <Link href="/users">Users</Link>
-        </li>
-      </ul>
+      <MainNavLinks />
 
       <ul className="flex items-center gap-2">
         <li>
           <Link href="/">Logout</Link>
         </li>
         <li>
-          <Link href="/">Dark</Link>
+          <ToggleMode />
         </li>
       </ul>
     </div>
