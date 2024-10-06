@@ -1,5 +1,9 @@
 const Dashboard = () => {
-  return <div>Ticketing app</div>;
+  return (
+    <div>
+      <h1 className="text-3xl underline">Dashboard</h1>
+    </div>
+  );
 };
 
 export default Dashboard;
