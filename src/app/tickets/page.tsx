@@ -2,7 +2,11 @@ import TicketsDataTable from "@/components/TicketsDataTable";
 import { db } from "@/lib/db";
 
 const Tickets = async () => {
-  const tickets = await db.ticket.findMany();
+  const tickets = await db.ticket.findMany({
+    orderBy: {
+      title: "asc",
+    },
+  });
 
   return (
     <>
