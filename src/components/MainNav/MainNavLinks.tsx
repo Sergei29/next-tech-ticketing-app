@@ -5,11 +5,12 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import { usePathname } from "next/navigation";
+import { paths } from "@/lib/utils";
 
 const navLinks = [
-  { id: 1, href: "/", label: "Dashboard" },
-  { id: 2, href: "/tickets", label: "Tickets" },
-  { id: 3, href: "/users", label: "Users" },
+  { id: 1, href: paths.home(), label: "Dashboard" },
+  { id: 2, href: paths.tickets(), label: "Tickets" },
+  { id: 3, href: paths.users(), label: "Users" },
 ];
 
 const MainNavLinks = (): JSX.Element => {

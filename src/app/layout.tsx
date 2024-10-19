@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import ThemeProvider from "@/components/ThemeProvider";
 import MainNav from "@/components/MainNav";
+import "easymde/dist/easymde.min.css";
 import "./globals.css";
 
 const inter = Inter({
