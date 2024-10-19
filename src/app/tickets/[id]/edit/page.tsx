@@ -6,7 +6,9 @@ import TicketForm from "@/components/TicketForm";
 import { updateTicketAction } from "@/lib/actions/tickets";
 import { db } from "@/lib/db";
 
-const EditTicketPage = async ({ params }: PageProps<{ id: string }>) => {
+const EditTicketPage = async ({
+  params,
+}: PageProps<{ id: string }, { ptrt?: string }>) => {
   const currentTicket = await db.ticket.findUnique({
     where: {
       id: +params.id,

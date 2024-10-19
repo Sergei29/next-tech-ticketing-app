@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
+import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -45,6 +46,7 @@ type Props = {
   actionUpdate?: (
     values: FormValues,
     id: number,
+    ptrt?: string,
   ) => Promise<string | undefined>;
   ticket?: Ticket;
 };
@@ -56,6 +58,9 @@ const TicketForm = ({
 }: Props): JSX.Element => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<null | string>(null);
+  const searchParams = useSearchParams();
+
+  const ptrt = searchParams.get("ptrt") ?? undefined;
 
   const form = useForm<FormValues>({
     defaultValues: ticket,
@@ -72,7 +77,7 @@ const TicketForm = ({
     }
 
     if (actionUpdate && ticket) {
-      errorMessage = await actionUpdate(values, ticket.id);
+      errorMessage = await actionUpdate(values, ticket.id, ptrt);
     }
 
     if (errorMessage) {
