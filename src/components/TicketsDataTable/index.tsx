@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Pencil, SquareX } from "lucide-react";
+import { Pencil } from "lucide-react";
 
 import type { Ticket } from "@prisma/client";
 
@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/tooltip";
 import TicketPriorityBadge from "@/components/TicketPriorityBadge";
 import TicketStatusBadge from "@/components/TicketStatusBadge";
+import DeleteButton from "@/components/DeleteButton";
 import { deleteTicketAction } from "@/lib/actions/tickets";
 import { paths } from "@/lib/utils";
 
@@ -83,15 +84,11 @@ const TicketsDataTable = ({ tickets }: Props): JSX.Element => {
                     </Link>
                   </TableCell>
                   <TableCell>
-                    <button
-                      onClick={() => {
+                    <DeleteButton
+                      handleDelete={() => {
                         deleteTicketAction(id);
                       }}
-                      className="px-4 py-2 rounded-xl bg-red-500 hover:bg-red-600 focus:bg-red-700 flex gap-2 max-w-[150px]"
-                    >
-                      <SquareX />
-                      delete
-                    </button>
+                    />
                   </TableCell>
                 </TableRow>
               );
